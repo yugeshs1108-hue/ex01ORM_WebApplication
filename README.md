@@ -1,8 +1,8 @@
 # Ex01 Django ORM Web Application
-## Date: 26/11/2025
+## Date: 30/11/2025
 
 ## AIM
-To develop a Django application to store and retrieve data from a Car Inventory Database using Object Relational Mapping(ORM).
+To develop a Django application to store and retrieve data from a product Database using Object Relational Mapping(ORM).
 
 ## DESIGN STEPS
 
@@ -16,7 +16,7 @@ Create a new app in Django project
 Enter the code for admin.py and models.py
 
 ### STEP 4:
-Execute Django admin and create details for 5 Car 
+Execute Django admin and create details for 2 products
 
 ## PROGRAM
 ```
@@ -24,22 +24,24 @@ models.py
 from django.db import models
 from django.contrib import admin
 # Create your models here.
-class Student(models.Model):
-    student_name = models.CharField(max_length=20, help_text="Enter Student Name")
-    age = models.IntegerField(help_text="Enter age between 18 to 22")
-    dob = models.DateField()
-    reg_no = models.IntegerField(help_text="Enter the Register Number")
+class Product(models.Model):
+    product_name=models.CharField(max_length=50,help_text="Enter Product Name")
+    price=models.IntegerField(help_text="Enter Product Price")
+    mfg_date=models.DateField(help_text="Manufacture Date")
+    product_code=models.CharField(help_text="Enter Product Code")
+class ProductAdmin(admin.ModelAdmin):
+    list_display=['product_name','price','mfg_date','product_code']
 
-class StudentAdmin(admin.ModelAdmin):
-    list_display = ['student_name', 'age', 'dob', 'reg_no']
 admin.py
 from django.contrib import admin
-from .models import Student, StudentAdmin
+from .models import Product,ProductAdmin
 # Register your models here.
-admin.site.register(Student, StudentAdmin)
+admin.site.register(Product,ProductAdmin) 
+
 ```
 ## OUTPUT
-![alt text](01-1.jpg) ![alt text](02-1.jpg) ![alt text](03-1.jpg)
+<img width="1915" height="828" alt="Screenshot 2025-11-30 145938" src="https://github.com/user-attachments/assets/419e5ba9-93f8-43bb-b476-e2cd11b31ef7" />
+
 
 ## RESULT
-Thus the program for creating car inventory database database using ORM hass been executed successfully
+Thus the program for creating product database database using ORM hass been executed successfully
