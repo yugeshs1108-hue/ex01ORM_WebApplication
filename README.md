@@ -44,4 +44,4 @@ admin.site.register(Product,ProductAdmin)
 
 
 ## RESULT
-Thus the program for creating product database database using ORM hass been executed successfully
+Thus the program for creating product database using ORM hass been executed successfully
